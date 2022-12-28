@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #0F2027;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.cell{
+    border-radius: 2vmin;
+    background-color: #203A43;
+}
+
+#game {
+    border-radius: 2vmin;
+    padding: 2vmin;
+    display: grid;
+    grid-template-columns: repeat(4, 20vmin);
+    grid-template-rows: repeat(4, 20vmin);
+    background-color: #2C5364;
+    gap: 1vmin;
+}
+
