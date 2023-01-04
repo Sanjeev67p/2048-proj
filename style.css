@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 
 body {
@@ -13,18 +14,47 @@ body {
     font-size: 7.5vmin;
 }
 
-.cell{
-    border-radius: 2vmin;
-    background-color: #203A43;
-}
-
 #game {
-    border-radius: 2vmin;
-    padding: 2vmin;
     display: grid;
     grid-template-columns: repeat(4, 20vmin);
     grid-template-rows: repeat(4, 20vmin);
     background-color: #2C5364;
     gap: 1vmin;
+    border-radius: 2vmin;
+    padding: 2vmin;
+    position: relative;
 }
 
+.cell{
+    border-radius: 2vmin;
+    background-color: #203A43;
+}
+
+.tile{
+    --x: 1;
+    --y: 3;
+    --background-lightness: 10%; 
+    --text-lightness: 80%; 
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    height: 20vmin;
+    width: 20vmin;
+    border-radius: 2vmin;
+    top: calc(var(--x)*(20vmin + 1vmin) + 2vmin);
+    left: calc(var(--y)*(20vmin + 1vmin) + 2vmin);
+    font-weight: bold;
+    background-color: hsl(198, 44%, var(--background-lightness));
+    color: hsl(198, 44%, var(--text-lightness));
+    animation: show 200ms ease-in-out;
+    transition: 100ms ease-in-out;
+}
+
+@keyframes show {
+    0%{
+        opacity: .5;
+        transform: scale(0); 
+    }
+}
