@@ -87,30 +87,26 @@ function hasEmptyCell() {
     return false;
 }
 
-function setupInput(){
-    window.addEventListener("keydown", handleInput, { once: true})
-}
-
-function handleInput(e){
-    switch (e.key){
-        case "ArrowUp":
-            moveUp()
-            break
-        case "ArrowDown":
-            moveDown()
-            break
-        case "ArrowLeft":
-            moveLeft()
-            break
-        case "ArrowRight":
-            moveRight()
-            break
-        default:
-            setupInput()
-            return
+document.addEventListener('keyup', (e) => {
+    if (e.code == "ArrowLeft") {
+        slideLeft();
+        setTwo();
     }
-    setupInput()
-}
+    else if (e.code == "ArrowRight") {
+        slideRight();
+        setTwo();
+    }
+    else if (e.code == "ArrowUp") {
+        slideUp();
+        setTwo();
+
+    }
+    else if (e.code == "ArrowDown") {
+        slideDown();
+        setTwo();
+    }
+    document.getElementById("score").innerText = score;
+})
 
 function slide(element){
     for (let i = 0; i < element.length-1; i++){
@@ -128,14 +124,12 @@ function slide(element){
     }
 }
 
-function moveLeft() {
-    let r = 0
-    let c = 0
-     for(r ;r < rows; r++){
+function slideLeft() {
+     for(r =0 ;r < rows; r++){
         let element = getElementById(r.toString() + "-" + c.toString())
         element = slide(element)
         getElementById(r.toString() + "-" + c.toString())= element
-        for(c; c < columns; c++){
+        for(c=0 ; c < columns; c++){
             let cell = document.getElementById(r.toString() + "-" + c.toString());
             let num = document.getElementById(r.toString() + "-" + c.toString());
             updateTile(tile, num);
