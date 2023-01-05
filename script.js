@@ -119,7 +119,7 @@ function slide(element){
             getElementById(r.toString() + "-" + (c+1).toString()) = 0;
             score += getElementById(r.toString() + "-" + c.toString());
         }
-        elseif(getElementById((r.toString() + "-" + c.toString()) === 0 ) || getElementById(r.toString() + "-" + c.toString()) === null){
+        if(getElementById((r.toString() + "-" + c.toString()) === null ) || getElementById(r.toString() + "-" + c.toString()) === 0){
             let newNum =  getElementById(r.toString() + "-" + c.toString())
             getElementById(r.toString() + "-" + c.toString()) = getElementById(r.toString() + "-" + (c+1).toString())
             getElementById(r.toString() + "-" + (c+1).toString()) = newNum
